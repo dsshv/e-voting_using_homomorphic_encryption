@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+votes.txt
+open_keys.txt
+possible_results_table.txt
+secret_keys.txt
+each_server_key.txt
+cryptograms.txt
+general_pubkey.txt
+cryptograms_parts.txt
+voter

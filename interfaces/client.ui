@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1000</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Демонстрация работы распределенного дешифрования</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_description">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>0</y>
+      <width>1033</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(153, 193, 241);
+
+</string>
+    </property>
+    <property name="text">
+     <string>Программа, использующая принципы гомоморфного шифрования с распределенным дешифрованием</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_margin_left">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>51</width>
+      <height>841</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(153, 193, 241);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_generate_keys">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>90</y>
+      <width>1031</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 193, 241);</string>
+    </property>
+    <property name="text">
+     <string>Нажмите чтобы сгенерировать случайные числа и открытые ключи: </string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_generate_keys">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>100</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Генерировать</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_keys">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>160</y>
+      <width>911</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Сгенерированны следующие ключи серверов:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_num_of_servers">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>60</y>
+      <width>1031</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(153, 193, 241);
+
+</string>
+    </property>
+    <property name="text">
+     <string>Количество серверов:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_general_key">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>260</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Генерировать</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_general_pub_key">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>250</y>
+      <width>1031</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 193, 241);</string>
+    </property>
+    <property name="text">
+     <string>Нажмите, чтобы сгенерировать общий ключ:</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_general_key">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>310</y>
+      <width>911</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Общий открытый ключ:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_encrypt">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>380</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Зашифровать</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_encrypt_votes">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>370</y>
+      <width>621</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 193, 241);</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Нажмите, чтобы зашифровать голоса избирателей: &lt;br/&gt;(Голоса находятся в файле votes.txt)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_cryptograms">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>430</y>
+      <width>911</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Сгенерированны следующие криптограммы:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_encr_vores_right">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>370</y>
+      <width>591</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 193, 241);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_decrypt">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>560</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Расшифровать</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_decrypt_votes">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>550</y>
+      <width>1031</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 193, 241);</string>
+    </property>
+    <property name="text">
+     <string>Нажмите, чтобы расшифровать голоса:</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_decrypt_votes">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>610</y>
+      <width>911</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Процесс дешифрования:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_vote_result">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>750</y>
+      <width>1031</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(153, 193, 241);</string>
+    </property>
+    <property name="text">
+     <string>Итоги голосования:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_margin_right">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>0</y>
+      <width>51</width>
+      <height>841</height>
+     </rect>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(153, 193, 241);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>60</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </widget>
+   <zorder>label_description</zorder>
+   <zorder>label_margin_left</zorder>
+   <zorder>label_generate_keys</zorder>
+   <zorder>label_num_of_servers</zorder>
+   <zorder>label_general_pub_key</zorder>
+   <zorder>label_encr_vores_right</zorder>
+   <zorder>label_decrypt_votes</zorder>
+   <zorder>label_vote_result</zorder>
+   <zorder>label_margin_right</zorder>
+   <zorder>textBrowser_keys</zorder>
+   <zorder>textBrowser_general_key</zorder>
+   <zorder>textBrowser_cryptograms</zorder>
+   <zorder>textBrowser_decrypt_votes</zorder>
+   <zorder>pushButton_generate_keys</zorder>
+   <zorder>pushButton_encrypt</zorder>
+   <zorder>pushButton_general_key</zorder>
+   <zorder>pushButton_decrypt</zorder>
+   <zorder>label_encrypt_votes</zorder>
+   <zorder>lineEdit</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

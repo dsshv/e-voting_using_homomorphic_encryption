@@ -3,12 +3,12 @@ import math
 
 class MontgomeryReducer:
     modulus: int
-    reducerbits: int
+    reducer_bits: int
     reducer: int
     mask: int
     reciprocal: int
     factor: int
-    convertedone: int
+    convert_done: int
 
     def __init__(self, mod: int):
         # Modulus
@@ -17,19 +17,19 @@ class MontgomeryReducer:
         self.modulus = mod
 
         # Reducer
-        self.reducerbits = (mod.bit_length() // 8 + 1) * 8  # This is a multiple of 8
-        self.reducer = 1 << self.reducerbits  # This is a power of 256
+        self.reducer_bits = (mod.bit_length() // 8 + 1) * 8  # This is a multiple of 8
+        self.reducer = 1 << self.reducer_bits  # This is a power of 256
         self.mask = self.reducer - 1
         assert (self.reducer > mod) and (math.gcd(self.reducer, mod) == 1)
 
         # Other computed numbers
         self.reciprocal = MontgomeryReducer.reciprocal_mod(self.reducer % mod, mod)
         self.factor = (self.reducer * self.reciprocal - 1) // mod
-        self.convertedone = self.reducer % mod
+        self.convert_done = self.reducer % mod
 
     # The range of x is unlimited
     def convert_in(self, x: int) -> int:
-        return (x << self.reducerbits) % self.modulus
+        return (x << self.reducer_bits) % self.modulus
 
     # The range of x is unlimited
     def convert_out(self, x: int) -> int:
@@ -41,7 +41,7 @@ class MontgomeryReducer:
         assert (0 <= x < mod) and (0 <= y < mod)
         product: int = x * y
         temp: int = ((product & self.mask) * self.factor) & self.mask
-        reduced: int = (product + temp * mod) >> self.reducerbits
+        reduced: int = (product + temp * mod) >> self.reducer_bits
         result: int = reduced if (reduced < mod) else (reduced - mod)
         assert 0 <= result < mod
         return result
@@ -52,7 +52,7 @@ class MontgomeryReducer:
         assert 0 <= x < self.modulus
         if y < 0:
             raise ValueError("Negative exponent")
-        z: int = self.convertedone
+        z: int = self.convert_done
         while y != 0:
             if y & 1 != 0:
                 z = self.multiply_algorithm(z, x)
@@ -76,13 +76,13 @@ class MontgomeryReducer:
         else:
             raise ValueError("Reciprocal does not exist")
 
-    def montgomeryMultiply(self, x: int, y: int) -> int:
+    def montgomery_multiply(self, x: int, y: int) -> int:
         x = self.convert_in(x)
         y = self.convert_in(y)
         result = self.convert_out(self.multiply_algorithm(x, y))
         return result
 
-    def montgomeryPow(self, x: int, y: int):
+    def montgomery_pow(self, x: int, y: int):
         x = self.convert_in(x)
         result = self.convert_out(self.pow_algorithm(x, y))
         return result
